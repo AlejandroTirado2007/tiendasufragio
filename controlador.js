@@ -45,7 +45,7 @@ let producto7={
     nombre:"DRAGON BALL XENOVERSE 2",
     precio:100000,
     estado:true,
-    foto:"https://firebasestorage.googleapis.com/v0/b/tiendapabo.appspot.com/o/foto14.jpg?alt=media&token=aafce26a-cf55-44f2-a040-99fc938021ec"
+    foto:"https://firebasestorage.googleapis.com/v0/b/tiendapabo.appspot.com/o/foto15.jpg?alt=media&token=fc6761c4-9d77-4eb2-87c9-74ad905ce857"
 }
 
 let producto8={
@@ -164,11 +164,24 @@ let productos=Array(
 )
 
 let contenedor = document.getElementById("contenedor")
+
 //RECORRO EL ARREGLO
 productos.forEach(function(producto){
-    console.log(producto.nombre)
+
+    let foto = document.createElement("img")
+    foto.classList.add("w-100" , "img-fluid")
+    foto.src = producto.foto
+    let columna = document.createElement("div")
+    columna.classList.add("col")
+    let tarjeta = document.createElement("div")
+    tarjeta.classList.add("card")
+
+    tarjeta.appendChild(foto)
+    columna.appendChild(tarjeta)
+    contenedor.appendChild(columna)
+
 })
 
 
-//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
+//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
 
