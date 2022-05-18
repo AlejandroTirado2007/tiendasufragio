@@ -515,16 +515,16 @@ productos.forEach(function(producto){
     let columna = document.createElement("div")
     columna.classList.add("col" , "mt-4")
     let tarjeta = document.createElement("div")
-    tarjeta.classList.add("card" , "p-3" , "h-100" , "shadow" )
+    tarjeta.classList.add("card" , "p-3" , "h-100" , "shadow" , "bg-transparent" )
 
     //Pone el Nombre
     let nombreProducto = document.createElement("h6")
-    nombreProducto.classList.add("text-center")
+    nombreProducto.classList.add("text-center" , "mt-1", "text-white")
     nombreProducto.textContent = producto.nombre
 
     //Pone el precio
-    let precioProducto = document.createElement("h5")
-    precioProducto.classList.add("text-center" , "text-success")
+    let precioProducto = document.createElement("p")
+    precioProducto.classList.add("text-center" , "text-success" , "strong")
     precioProducto.textContent = "Precio: $" + producto.precio
 
     //Pone el estado
@@ -532,16 +532,16 @@ productos.forEach(function(producto){
     
     //Pone las estrellas
     let contenedorEstrellas = document.createElement("div")
-    contenedorEstrellas.classList.add("text-center")
+    contenedorEstrellas.classList.add("text-center" , "text-warning")
 
     //Pone el país
     let pais = document.createElement("h5")
-    pais.classList.add("text-center")
+    pais.classList.add("text-center" , "text-white")
     pais.textContent = producto.pais
 
     //Pone la popularidad
     let popProducto = document.createElement("h5")
-    popProducto.classList.add("text-center" , "bg-secondary")
+    popProducto.classList.add("text-center")
     popProducto.textContent = producto.popularidad
 
     
@@ -555,6 +555,11 @@ productos.forEach(function(producto){
         estadoProducto.textContent = "Estado: Usado"
     }
 
+    let boton = document.createElement("button")
+    boton.classList.add("btn" , "btn-info")
+    boton.textContent = "Comprar"
+
+
     
 
     
@@ -563,13 +568,27 @@ productos.forEach(function(producto){
     tarjeta.appendChild(nombreProducto)
     tarjeta.appendChild(precioProducto)
     tarjeta.appendChild(estadoProducto)
+    tarjeta.appendChild(pais)
     tarjeta.appendChild(contenedorEstrellas)
     contenedorEstrellas.appendChild(popProducto)
-    tarjeta.appendChild(pais)
+    tarjeta.appendChild(boton)
     columna.appendChild(tarjeta)
     contenedor.appendChild(columna)
     
+   
+})
 
+let Comprar = document.getElementById("contenedor")
+
+Comprar.addEventListener("click" , function(evento){
+if(evento.target.classList.contains("btn")){
+
+    console.log(evento.target.parentElement.querySelector("p").textContent)
+    let precio=evento.target.parentElement.querySelector("p").textContent.split("Precio:")[1]
+    let precioReal=Number(precio.split("$")[1])
+    
+    
+}
 })
 
 
